@@ -21,9 +21,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintain.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintain.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));                                      //it takes middleware which we want to use
 //express.static takes absolute path to the folder you want to serve up
@@ -57,6 +57,13 @@ app.get('/about', (req, res) => {
   res.render('about.hbs',{                                 //this data is dynamically inserted into our page
     pageTitle: 'About Page'
   });                          //lets us render any template set up with our current view engine
+});
+
+app.get('/project', (req, res) => {
+  res.render('project.hbs', {
+    pageTitle: 'Project Page',
+    message: 'Portfolio page here'
+  });
 });
 
 app.get('/bad', (req, res) => {
